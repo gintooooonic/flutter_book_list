@@ -69,7 +69,12 @@ class BookTile extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => DetailScreen(),
+            builder: (context) => DetailScreen(
+              title: title,
+              subtitle: subtitle,
+              description: description,
+              image: image,
+            ),
           ),
         );
       },

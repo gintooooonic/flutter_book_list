@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final String description;
+  final String image;
+
+  DetailScreen({
+    required this.title,
+    required this.subtitle,
+    required this.description,
+    required this.image,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('쉽고 빠른 플러터 앱 개발'),
+        title: Text(title),
       ),
       body: Column(
         children: [
-          Image.network(
-              'https://simage.kyobobook.co.kr/images/book/large/514/l9791165921514.jpg'),
+          Image.network(image),
           Padding(
             padding: EdgeInsets.all(3),
           ),
@@ -26,7 +37,7 @@ class DetailScreen extends StatelessWidget {
                   children: [
                     Container(
                       child: Text(
-                        '쉽고 빠른 플러터 앱 개발',
+                        title,
                         style: TextStyle(
                           fontSize: 23,
                           fontWeight: FontWeight.bold,
@@ -34,7 +45,7 @@ class DetailScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Flutter & Dart로 화면 구현ㆍ상태 관리ㆍ데이터 처리ㆍ디자인 패턴 익히기',
+                      subtitle,
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.grey,
@@ -107,9 +118,7 @@ class DetailScreen extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.all(15),
-            child: Text(
-              '인프런의 인기 강의, “무작정 시리즈” 제작자가 직접 집필한 플러터 도서. 초심자들도 어렵지 않은, 쉽고 빠른 플러터 앱 개발!',
-            ),
+            child: Text(description),
           ),
         ],
       ),
